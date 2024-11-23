@@ -105,6 +105,14 @@ class ChangeTextBehaviorKtTest {
         pause()
     }
 
+    @Test
+    fun validateEmptyEditTextChangeTextButton(){
+        //without entering anything, press change text button
+        onView(withId(R.id.changeTextBt)).perform(click())
+        onView(withId(R.id.textToBeChanged)).check(matches(withText("")))
+        pause()
+    }
+
     private fun pause() {
         try {
             Thread.sleep(1000)
