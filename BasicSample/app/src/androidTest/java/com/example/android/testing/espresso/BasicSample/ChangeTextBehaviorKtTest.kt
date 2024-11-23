@@ -121,6 +121,15 @@ class ChangeTextBehaviorKtTest {
         pause()
     }
 
+    @Test
+    fun validateAlphabetEditTextChangeTextButton(){
+        //entered text, press change text button
+        val enterText = "abcdef"
+        onView(withId(R.id.editTextUserInput)).perform(typeText(enterText))
+        onView(withId(R.id.changeTextBt)).perform(click())
+        onView(withId(R.id.textToBeChanged)).check(matches(withText(enterText)))
+        pause()
+    }
 
     private fun pause() {
         try {
