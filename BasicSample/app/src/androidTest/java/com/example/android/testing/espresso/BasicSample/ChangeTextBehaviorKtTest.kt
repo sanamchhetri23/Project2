@@ -113,6 +113,15 @@ class ChangeTextBehaviorKtTest {
         pause()
     }
 
+    @Test
+    fun validateEmptyEditTextOpenActivityChangeTextButton(){
+        //without entering anything , press open activity and change text button
+        onView(withId(R.id.activityChangeTextBtn)).perform(click())
+        onView(withId(R.id.show_text_view)).check(matches(withText("")))
+        pause()
+    }
+
+
     private fun pause() {
         try {
             Thread.sleep(1000)
