@@ -30,4 +30,12 @@ class EmailValidatorTest {
         assertFalse(EmailValidator.isValidEmail("testing123"))
     }
 
+    @Test
+    fun toTestValidEmailWithEmptyString(){
+        assertFalse(EmailValidator.isValidEmail(""))
+    }
+    @Test
+    fun toTestValidEmailWithNullValues(){
+        assertFalse(EmailValidator.isValidEmail(null))
+    }
 }
