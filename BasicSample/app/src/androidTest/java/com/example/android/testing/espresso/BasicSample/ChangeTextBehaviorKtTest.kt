@@ -140,6 +140,14 @@ class ChangeTextBehaviorKtTest {
         onView(withId(R.id.show_text_view)).check(matches(withText(enterText)))
     }
 
+    @Test
+    fun validateTextViewShowTextActivity() {
+        val testString = "Test"
+        onView(withId(R.id.editTextUserInput)).perform(typeText(testString), closeSoftKeyboard())
+        onView(withId(R.id.activityChangeTextBtn)).perform(click())
+        onView(withId(R.id.show_text_view)).check(matches(withText(testString)))
+    }
+
     private fun pause() {
         try {
             Thread.sleep(1000)
