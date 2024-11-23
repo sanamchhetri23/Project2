@@ -85,7 +85,16 @@ class ChangeTextBehaviorKtTest {
         onView(withId(R.id.textToBeChanged)).check(matches(withText(R.string.hello_world)))
         pause()
     }
-    
+
+    @Test
+    fun validateEditTextChangeTextButton(){
+        //entered 123 value and press change text button
+        val enterNumber = "123"
+        onView(withId(R.id.editTextUserInput)).perform(typeText(enterNumber))
+        onView(withId(R.id.changeTextBt)).perform(click())
+        onView(withId(R.id.textToBeChanged)).check(matches(withText(enterNumber)))
+    }
+
     private fun pause() {
         try {
             Thread.sleep(1000)
