@@ -12,5 +12,13 @@ class EmailValidatorTest {
     fun toTestValidEmailWithSubdomain(){
         assertTrue(EmailValidator.isValidEmail("123@abc.co.ca"))
     }
+    @Test
+    fun toTestValidEmailWithIncorrectDomain(){
+        assertFalse(EmailValidator.isValidEmail("123@abc"))
+    }
+    @Test
+    fun toTestValidEmailWithDoubleDots(){
+        assertFalse(EmailValidator.isValidEmail("123@abc..com"))
+    }
 
 }
