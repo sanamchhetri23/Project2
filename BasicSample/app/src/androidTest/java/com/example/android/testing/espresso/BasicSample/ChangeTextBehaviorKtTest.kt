@@ -95,6 +95,16 @@ class ChangeTextBehaviorKtTest {
         onView(withId(R.id.textToBeChanged)).check(matches(withText(enterNumber)))
     }
 
+    @Test
+    fun validateEditTextOpenActivityChangeTextButton() {
+        //entered 123 value, open activity and change text button
+        val enterNumber = "123"
+        onView(withId(R.id.editTextUserInput)).perform(typeText(enterNumber))
+        onView(withId(R.id.activityChangeTextBtn)).perform(click())
+        onView(withId(R.id.show_text_view)).check(matches(withText(enterNumber)))
+        pause()
+    }
+
     private fun pause() {
         try {
             Thread.sleep(1000)
